@@ -10,6 +10,21 @@ export async function getVideos(req, res) {
         res.status(500).json({ message: "Error fetching videos", error });
     }
 }
+//using get and findById with object id to fetch specific product
+export async function particularVideo(req, res){
+    try{
+     const particularVideo= await Video.findById(req.params.id)  // Fetch the product by ID
+     console.log("video with this particular id", particularVideo);
+     if(particularVideo){
+         return res.status(200).send(particularVideo);
+     }else{
+         return res.status(404).send({message:"Video not found"})
+     }
+ }catch(error){
+    console.log("error retrieving Video:", Video);
+    return res.status(500).send({message:"Internal server error"});
+ }
+ };
 //  create a video inside a channel
 export async function createVideo(req, res) {
     const { title, url, thumbnail, description, genre } = req.body;
