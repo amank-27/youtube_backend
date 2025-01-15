@@ -3,11 +3,11 @@ import { verifyToken } from '../middlewares/verify.js';  // Assuming verifyToken
 
 export function commentRoutes(app){
 
-app.post('/comments', verifyToken, addComment);
+app.post('/comments', addComment);
 app.get('/comments/:videoId', getComments);
 app.get('/comments', getAllComments);
-app.put('/comments/:commentId', verifyToken, editComment);
-app.delete('/comments/:commentId', verifyToken, deleteComment);
+app.put('/comments/:commentId',  editComment);
+app.delete('/comments/:commentId', deleteComment);
 }
 
 
