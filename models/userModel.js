@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
     username: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },  // Store hashed password
-    avatar: { type: String, required: true },
+    avatar: { type: String },
     channels: [{ type: String }]  // channel IDs the user is associated with
 });
 
