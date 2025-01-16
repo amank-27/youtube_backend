@@ -1,14 +1,13 @@
-import { addComment, getComments,getAllComments,editComment,deleteComment } from '../controllers/commentController.js';
-import { verifyToken } from '../middlewares/verify.js';  // Assuming verifyToken is already implemented
+import { deletComment, editComment, getComment, addComment } from "../controllers/commentController.js";
 
 export function commentRoutes(app){
 
-app.post('/comments', addComment);
-app.get('/comments/:videoId', getComments);
-app.get('/comments', getAllComments);
-app.put('/comments/:commentId',  editComment);
-app.delete('/comments/:commentId', deleteComment);
+    app.get("/comment",getComment)
+
+    app.post("/comment",addComment);
+
+    app.put("/comment",editComment);
+
+    app.delete("/comment",deletComment);
+    
 }
-
-
-

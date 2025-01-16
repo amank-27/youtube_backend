@@ -1,14 +1,12 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const commentSchema = mongoose.Schema({
-    videoId: { type: mongoose.Schema.Types.ObjectId, ref: 'Video', required: true }, // Linking to Video
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },   // Linking to User
-    userName: { type: String  },    
-    text: { type: String, required: true },         
-    createdAt: { type: Date, default: Date.now },  
+const userSchema = mongoose.Schema({
+    "commentData":{type:String},
+    "userName":{type:String},
+    "userEmail":{type:String},
+    "videoId":{type:String}
 });
 
+const comment =mongoose.model("youtubeComments",userSchema);
 
-const Comment = mongoose.model('Comment', commentSchema);
-
-export default Comment;
+export default comment;
