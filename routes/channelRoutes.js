@@ -1,10 +1,11 @@
-import { createChannel, getChannel } from "../controllers/channelController.js";
+import { createChannel, deleteChannel } from "../controllers/channelController.js";
 import { verifyToken } from "../middlewares/verify.js"; 
 
-// Define the channel routes
-export function channelRoutes(app) {
-  
-  app.post("/channels", verifyToken, createChannel);
+// routes for all channel related actions
+export function channelRoutes(app){
 
-  app.get("/channels/:channelId", getChannel);
+    app.put("/createchannel",verifyToken,createChannel);
+    
+    app.put("/deletechannel",verifyToken,deleteChannel);
+
 }

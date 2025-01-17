@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },  // Store hashed password
     avatar: { type: String },
-    channels: [{ type: String }]  // channel IDs the user is associated with
+    channelName:{type:String,default:""}
 });
 
 // Create a user model
