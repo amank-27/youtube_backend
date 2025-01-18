@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 
 const videoSchema = mongoose.Schema({
 
-    videoId: { type: String, required: true },
-    url: { type: String, required: true },
-    title: { type: String, required: true },
-    thumbnail: { type: String, required: true },
-    description: { type: String, required: true },
+    videoId: { type: String  },
+    url: { type: String  },
+    title: { type: String  },
+    thumbnail: { type: String  },
+    description: { type: String },
     views: { type: Number, default: 0 },
     likes: { type: Number, default: 0 },
     uploadDate: { type: String,},
