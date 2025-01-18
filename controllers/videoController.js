@@ -59,3 +59,25 @@ export async function deleteVideo(req,res){
         res.status(400).json({"message":err});
       }
 }
+
+export async function editVideo(req, res){
+    const { id } = req.params;
+    const { title, description, genre } = req.body;
+  
+    try {
+      const updatedVideo = await Video.findByIdAndUpdate(
+        id,
+        { title, description, genre },
+        { new: true }
+      );
+  
+      if (updatedVideo) {
+        res.json({ success: true, message: "Video updated successfully", video: updatedVideo });
+      } else {
+        res.status(404).json({ success: false, message: "Video not found" });
+      }
+    } catch (error) {
+      res.status(500).json({ success: false, message: "Internal server error" });
+    }
+  };
+  

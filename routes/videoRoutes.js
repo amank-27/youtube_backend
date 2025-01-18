@@ -1,4 +1,4 @@
-import { getVideos,addVideo,deleteVideo, particularVideo } from "../controllers/videoController.js";
+import { getVideos,addVideo,deleteVideo, particularVideo, editVideo } from "../controllers/videoController.js";
 
 
 export function videoRoutes(app){
@@ -9,4 +9,6 @@ export function videoRoutes(app){
     app.post("/addvideo",addVideo);
    
     app.delete("/deletevideo",deleteVideo);
+
+    app.put("/editvideo/:id", editVideo)
 }
