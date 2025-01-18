@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const videoSchema = mongoose.Schema({
+
     videoId: { type: String, required: true },
     url: { type: String, required: true },
     title: { type: String, required: true },
@@ -10,8 +11,9 @@ const videoSchema = mongoose.Schema({
     likes: { type: Number, default: 0 },
     uploadDate: { type: String,},
     genre: { type: String },
-    channelId: { type: String, required: true },
-    uploader: { type: String, required: true }
+    channelId: { type: String },
+    uploader: { type: String },
+    owner:{type:String,default:""}
 });
 
 // Create a video model
